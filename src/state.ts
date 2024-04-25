@@ -2,13 +2,11 @@ import { Signal } from "signal-polyfill";
 
 export const INITIAL_COUNT = 0;
 
-// Some state to toggle the display of the Status component
-export const displayState = new Signal.State(true);
+// A simple state to keep track of a couple counters
+export const counterOneState = new Signal.State(INITIAL_COUNT);
+export const counterTwoState = new Signal.State(INITIAL_COUNT);
 
-// A simple state to keep track of a counter
-export const counterState = new Signal.State(INITIAL_COUNT);
-
-// A computed signal that doubles the counter
-export const doubleCounterState = new Signal.Computed(
-  () => counterState.get() * 2,
+// A computed signal that tallies both counters
+export const talliedCounterState = new Signal.Computed(
+  () => counterOneState.get() + counterTwoState.get(),
 );

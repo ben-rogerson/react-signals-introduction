@@ -1,29 +1,30 @@
 import { useSignal } from "../hooks/useSignal";
-import { INITIAL_COUNT, counterState, displayState } from "../state";
+import { INITIAL_COUNT, counterOneState, counterTwoState } from "../state";
 
 export const Controls = () => {
-  const [counter, setCounter] = useSignal(counterState);
-  const [isDisplayed, setIsDisplayed] = useSignal(displayState);
+  const [counterOne, setCounterOne] = useSignal(counterOneState);
+  const [counterTwo, setCounterTwo] = useSignal(counterTwoState);
 
   return (
     <>
       <button
         onClick={() => {
-          setIsDisplayed(!isDisplayed);
+          setCounterOne(counterOne + 1);
         }}
       >
-        {isDisplayed ? "Show" : "Hide"}
+        Increment 1
       </button>
       <button
         onClick={() => {
-          setCounter(counter + 1);
+          setCounterTwo(counterTwo + 1);
         }}
       >
-        Increment ({counter})
+        Increment 2
       </button>
       <button
         onClick={() => {
-          setCounter(INITIAL_COUNT);
+          setCounterOne(INITIAL_COUNT);
+          setCounterTwo(INITIAL_COUNT);
         }}
       >
         Reset
