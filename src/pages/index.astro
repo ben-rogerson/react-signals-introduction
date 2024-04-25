@@ -1,0 +1,24 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SignalTest } from "../components/SignalTest";
+import { Controls } from "../components/Controls";
+---
+
+<Layout title="Signals">
+  <main>
+    <SignalTest client:load />
+    <Controls client:load />
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: grid;
+    place-content: center;
+    margin-inline: auto;
+    gap: 2rem;
+    min-height: 100dvh;
+    font-size: 250%;
+    max-width: 80%;
+  }
+</style>
