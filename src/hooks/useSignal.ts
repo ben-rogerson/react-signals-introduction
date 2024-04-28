@@ -80,7 +80,7 @@ const processPending = () => {
   watcher.watch();
 };
 
-export const effect = (callback: () => void) => {
+const effect = (callback: () => void) => {
   let cleanup: (() => void) | void;
 
   const computed = new Signal.Computed(() => {
